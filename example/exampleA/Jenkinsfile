@@ -1,0 +1,47 @@
+node {
+    properties([disableConcurrentBuilds(), [$class: 'GithubProjectProperty', displayName: 'test-account', projectUrlStr: 'https://github.com/JamesWoolfenden/infrastructure/']])
+
+    parameters {
+        string(name: 'AWS_REGION', defaultValue: 'eu-west-2', description: 'Specify the AWS Region')
+    }
+
+    wrap([$class: 'AnsiColorBuildWrapper', colorMapName: 'xterm']) {
+        stage('Clear workspace') {
+            step([$class: 'WsCleanup'])
+        }
+
+        try {
+            sh("eval \$(aws ecr get-login --region eu-west-2 --no-include-email | sed 's|https://||')")
+            stage('Pull') {
+                checkout scm
+            }
+            docker.image('10000000.dkr.ecr.eu-west-2.amazonaws.com/jenkins').inside('-v /var/lib/jenkins/.ssh:/var/lib/jenkins/.ssh -v /etc/passwd:/etc/passwd') {
+                stage('Build the ENTIRE Environment') {
+                    sh '''cat <<EOM
+                            -----------------------------------------------------------------------------------------------
+                            | Build Environment                                                                           |
+                            -----------------------------------------------------------------------------------------------
+                            EOM'''
+                    dir('test/cloudfront') {
+                        echo "TF_VAR_aws_region=${params.AWS_REGION}"
+                        sh "TF_VAR_aws_region=${params.AWS_REGION} make init"
+                        sh "TF_VAR_aws_region=${params.AWS_REGION} make build"
+                    }
+                }
+                stage('Destroy the ENTIRE Environment') {
+                    sh '''cat <<EOM
+                            -----------------------------------------------------------------------------------------------
+                            | Destroy Environment                                                                         |
+                            -----------------------------------------------------------------------------------------------
+                            EOM'''
+                    dir('test/cloudfront') {
+                        echo "TF_VAR_aws_region=${params.AWS_REGION}"
+                        sh "TF_VAR_aws_region=${params.AWS_REGION} make destroy"
+                    }
+                }
+            }
+        } catch (error) {
+            throw error
+        }
+    }
+}
