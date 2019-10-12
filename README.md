@@ -1,7 +1,7 @@
 
-# terraform-aws-certificate_authority [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-aws-certificate_authority-s3.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-certificate_authority-s3) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-certificate_authority-s3.svg)](https://github.com/JamesWoolfenden/terraform-aws-certificate_authority-s3/releases/latest)
+# terraform-aws-certificate-authority [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-aws-certificate-authority.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-certificate-authority) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-certificate-authority.svg)](https://github.com/JamesWoolfenden/terraform-aws-certificate-authority/releases/latest)
 
-Terraform module to provision infra .
+Terraform module to provision infra. This is pretty much the example from the terraform docs converted to a module.
 
 ## Usage
 
@@ -17,7 +17,7 @@ Terraform module to provision infra .
 
 | Name | Description |
 |------|-------------|
-| certificate\_signing\_request |  |
+| certificate\_signing\_request | The CSR itself |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Related Projects
@@ -30,13 +30,13 @@ Check out these related projects.
 
 **Got a question?**
 
-File a GitHub [issue](https://github.com/JamesWoolfenden/terraform-aws-budget/issues).
+File a GitHub [issue](https://github.com/JamesWoolfenden/terraform-aws-certificate-authority/issues).
 
 ## Contributing
 
 ### Bug Reports & Feature Requests
 
-Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-budget/issues) to report any bugs or file feature requests.
+Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-certificate-authority/issues) to report any bugs or file feature requests.
 
 ## Copyrights
 
@@ -78,8 +78,8 @@ under the License.
 [linkedin]: https://www.linkedin.com/company/slalom-consulting/
 [twitter]: https://twitter.com/Slalom
 
-[share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-budget&url=https://github.com/JamesWoolfenden/terraform-aws-budget
-[share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-budget&url=https://github.com/JamesWoolfenden/terraform-aws-budget
-[share_reddit]: https://reddit.com/submit/?url=https://github.com/JamesWoolfenden/terraform-aws-budget
-[share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/JamesWoolfenden/terraform-aws-budget
-[share_email]: mailto:?subject=terraform-aws-budget&body=https://github.com/JamesWoolfenden/terraform-aws-budget
+[share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-certificate-authority&url=https://github.com/JamesWoolfenden/terraform-aws-certificate-authority
+[share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-certificate-authority&url=https://github.com/JamesWoolfenden/terraform-aws-certificate-authority
+[share_reddit]: https://reddit.com/submit/?url=https://github.com/JamesWoolfenden/terraform-aws-certificate-authority
+[share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/JamesWoolfenden/terraform-aws-certificate-authority
+[share_email]: mailto:?subject=terraform-aws-certificate-authority&body=https://github.com/JamesWoolfenden/terraform-aws-certificate-authority
