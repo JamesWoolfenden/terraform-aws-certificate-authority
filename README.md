@@ -14,8 +14,10 @@ Include this repository as a module in your existing terraform code:
 
 ```hcl
 module "ca" {
-  source                  = ""
-  version                 = "0.2.46"
+  source                  = "JamesWoolfenden/certificate-authority/aws"
+  version                 = "0.2.12"
+  algorithm               = var.algorithm
+  subject                 = var.subject
   common_tags             = var.common_tags
 }
 ```
