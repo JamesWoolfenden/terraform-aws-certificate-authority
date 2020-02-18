@@ -1,8 +1,3 @@
-#Makefile
-AWS_ACCOUNT ?= "10000000"
-AWS_ROLE ?= "Jenkins-Local-Admin"
-KEY ?= "id_rsa.JIM_mgn"
-
 .PHONY: all
 
 all: init plan build
