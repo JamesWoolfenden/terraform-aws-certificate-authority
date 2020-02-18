@@ -1,5 +1,5 @@
 node {
-    properties([disableConcurrentBuilds(), [$class: 'GithubProjectProperty', displayName: 'test-account', projectUrlStr: 'https://github.com/JamesWoolfenden/infrastructure/']])
+    properties([disableConcurrentBuilds(), [$class: 'GithubProjectProperty', displayName: 'test-account', projectUrlStr: 'https://github.com/JamesWoolfenden/somerepo']])
 
     parameters {
         string(name: 'AWS_REGION', defaultValue: 'eu-west-2', description: 'Specify the AWS Region')
@@ -22,7 +22,7 @@ node {
                             | Build Environment                                                                           |
                             -----------------------------------------------------------------------------------------------
                             EOM'''
-                    dir('test/cloudfront') {
+                    dir('terraform-aws-certificate-authority') {
                         echo "TF_VAR_aws_region=${params.AWS_REGION}"
                         sh "TF_VAR_aws_region=${params.AWS_REGION} make init"
                         sh "TF_VAR_aws_region=${params.AWS_REGION} make build"
@@ -34,7 +34,7 @@ node {
                             | Destroy Environment                                                                         |
                             -----------------------------------------------------------------------------------------------
                             EOM'''
-                    dir('test/cloudfront') {
+                    dir('terraform-aws-certificate-authority') {
                         echo "TF_VAR_aws_region=${params.AWS_REGION}"
                         sh "TF_VAR_aws_region=${params.AWS_REGION} make destroy"
                     }

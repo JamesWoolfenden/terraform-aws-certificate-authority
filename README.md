@@ -1,17 +1,38 @@
+[![Slalom][logo]](https://slalom.com)
 
-# terraform-aws-certificate-authority [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-aws-certificate-authority.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-certificate-authority) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-certificate-authority.svg)](https://github.com/JamesWoolfenden/terraform-aws-certificate-authority/releases/latest)
+# terraform-aws-certificate-authority [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-aws-certificate-authority.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-certificate-authority) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-certificate-authority.svg)](https://github.com/JamesWoolfenden/terraform-aws-certificate-authority/releases/latest)[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
 Terraform module to provision infra. This is pretty much the example from the terraform docs converted to a module.
 
+---
+
+It's 100% Open Source and licensed under the [APACHE2](LICENSE).
+
 ## Usage
 
+Include this repository as a module in your existing terraform code:
+
+```hcl
+module "ca" {
+  source                  = ""
+  version                 = "0.2.46"
+  common_tags             = var.common_tags
+}
+```
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | n/a |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| algorithm |  | map | n/a | yes |
-| subject |  | map | n/a | yes |
+|------|-------------|------|---------|:-----:|
+| algorithm | n/a | `map` | n/a | yes |
+| subject | n/a | `map` | n/a | yes |
 
 ## Outputs
 
@@ -40,7 +61,7 @@ Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-
 
 ## Copyrights
 
-Copyright � 2019-2019 [Slalom, LLC](https://slalom.com)
+Copyright © 2019-2020 [Slalom, LLC](https://slalom.com)
 
 ## License
 
@@ -67,17 +88,15 @@ under the License.
 
 ### Contributors
 
-  [![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage]<br/>[James Woolfenden][jameswoolfenden_homepage]
+[![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage]<br/>[James Woolfenden][jameswoolfenden_homepage]
 
-  [jameswoolfenden_homepage]: https://github.com/jameswoolfenden
-  [jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
-
+[jameswoolfenden_homepage]: https://github.com/jameswoolfenden
+[jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
 [logo]: https://gist.githubusercontent.com/JamesWoolfenden/5c457434351e9fe732ca22b78fdd7d5e/raw/15933294ae2b00f5dba6557d2be88f4b4da21201/slalom-logo.png
 [website]: https://slalom.com
 [github]: https://github.com/jameswoolfenden
 [linkedin]: https://www.linkedin.com/company/slalom-consulting/
 [twitter]: https://twitter.com/Slalom
-
 [share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-certificate-authority&url=https://github.com/JamesWoolfenden/terraform-aws-certificate-authority
 [share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-certificate-authority&url=https://github.com/JamesWoolfenden/terraform-aws-certificate-authority
 [share_reddit]: https://reddit.com/submit/?url=https://github.com/JamesWoolfenden/terraform-aws-certificate-authority
