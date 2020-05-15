@@ -1,6 +1,11 @@
 [![Slalom][logo]](https://slalom.com)
 
-# terraform-aws-certificate-authority [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-aws-certificate-authority.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-certificate-authority) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-certificate-authority.svg)](https://github.com/JamesWoolfenden/terraform-aws-certificate-authority/releases/latest)[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+# terraform-aws-certificate-authority
+
+[![Build Status](https://github.com/JamesWoolfenden/terraform-aws-certificate-authority/workflows/Verify%20and%20Bump/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-aws-certificate-authority)
+[![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-certificate-authority.svg)](https://github.com/JamesWoolfenden/terraform-aws-certificate-authority/releases/latest)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![pre-commit](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
 
 Terraform module to provision infra. This is pretty much the example from the terraform docs converted to a module.
 
@@ -34,6 +39,7 @@ module "ca" {
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:-----:|
 | algorithm | n/a | `map` | n/a | yes |
+| sse\_algorithm | The type of encryption algorithm to use | `string` | `"aws:kms"` | no |
 | subject | n/a | `map` | n/a | yes |
 
 ## Outputs
