@@ -26,7 +26,6 @@ module "ca" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-
 ## Requirements
 
 No requirements.
@@ -34,22 +33,22 @@ No requirements.
 ## Providers
 
 | Name | Version |
-| ---- | ------- |
-| aws  | n/a     |
+|------|---------|
+| aws | n/a |
 
 ## Inputs
 
-| Name          | Description                             | Type     | Default     | Required |
-| ------------- | --------------------------------------- | -------- | ----------- | :------: |
-| algorithm     | n/a                                     | `map`    | n/a         |   yes    |
-| sse_algorithm | The type of encryption algorithm to use | `string` | `"aws:kms"` |    no    |
-| subject       | n/a                                     | `map`    | n/a         |   yes    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| algorithm | n/a | `map` | n/a | yes |
+| sse\_algorithm | The type of encryption algorithm to use | `string` | `"aws:kms"` | no |
+| subject | n/a | `map` | n/a | yes |
 
 ## Outputs
 
-| Name                        | Description    |
-| --------------------------- | -------------- |
-| certificate_signing_request | The CSR itself |
+| Name | Description |
+|------|-------------|
+| certificate\_signing\_request | The CSR itself |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
