@@ -8,7 +8,7 @@ data "aws_iam_policy_document" "access" {
     ]
 
     resources = [
-      "${aws_s3_bucket.crl.arn}",
+      aws_s3_bucket.crl.arn,
       "${aws_s3_bucket.crl.arn}/*",
     ]
 

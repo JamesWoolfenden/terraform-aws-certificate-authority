@@ -1,7 +1,7 @@
 variable "subject" {
-  type = map
+  type = map(any)
 }
 
 variable "algorithm" {
-  type = map
+  type = map(any)
 }
