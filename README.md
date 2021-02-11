@@ -44,9 +44,9 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| algorithm | n/a | `map` | n/a | yes |
+| algorithm | n/a | `map(any)` | n/a | yes |
 | sse\_algorithm | The type of encryption algorithm to use | `string` | `"aws:kms"` | no |
-| subject | n/a | `map` | n/a | yes |
+| subject | n/a | `map(any)` | n/a | yes |
 
 ## Outputs
 
