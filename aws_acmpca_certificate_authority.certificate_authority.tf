@@ -21,4 +21,5 @@ resource "aws_acmpca_certificate_authority" "certificate_authority" {
   }
 
   depends_on = [aws_s3_bucket_policy.bucket]
+
 }
