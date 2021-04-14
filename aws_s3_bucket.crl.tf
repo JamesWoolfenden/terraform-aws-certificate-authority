@@ -1,6 +1,9 @@
 resource "aws_s3_bucket" "crl" {
+  # tfsec:ignore:AWS002
+  # checkov:skip=CKV_AWS_144: Inappropriate check
+  # checkov:skip=CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
   bucket = "certificate-revocation-list-${data.aws_caller_identity.current.account_id}"
-  #checkov:skip=CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+
   versioning {
     enabled    = true
     mfa_delete = true
