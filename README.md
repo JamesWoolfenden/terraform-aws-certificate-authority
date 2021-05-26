@@ -29,6 +29,31 @@ module "ca" {
 }
 ```
 
+## Costs
+
+```text
+ Monthly cost estimate
+
+Project: .
+
+ Name                                                                  Monthly Qty  Unit                Monthly Cost
+
+ module.ca.aws_acmpca_certificate_authority.certificate_authority
+ ├─ Private certificate authority                                                1  months                   $400.00
+ └─ Certificates (first 1K)                                        Cost depends on usage: $0.75 per requests
+
+ module.ca.aws_s3_bucket.crl
+ └─ Standard
+    ├─ Storage                                                     Cost depends on usage: $0.02 per GB-months
+    ├─ PUT, COPY, POST, LIST requests                              Cost depends on usage: $0.0053 per 1k requests
+    ├─ GET, SELECT, and all other requests                         Cost depends on usage: $0.00042 per 1k requests
+    ├─ Select data scanned                                         Cost depends on usage: $0.00225 per GB-months
+    └─ Select data returned                                        Cost depends on usage: $0.0008 per GB-months
+
+ PROJECT TOTAL                                                                                               $400.00
+
+```
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 

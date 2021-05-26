@@ -1,4 +1,5 @@
 resource "aws_s3_bucket" "crl" {
+  # checkov:skip=CKV2_AWS_6: ADD REASON
   # tfsec:ignore:AWS002
   # checkov:skip=CKV_AWS_144: Inappropriate check
   # checkov:skip=CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
