@@ -55,15 +55,16 @@ Project: .
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Requirements
 
 No requirements.
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| Name                                             | Version |
+| ------------------------------------------------ | ------- |
+| <a name="provider_aws"></a> [aws](#provider_aws) | n/a     |
 
 ## Modules
 
@@ -71,27 +72,28 @@ No modules.
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [aws_acmpca_certificate_authority.certificate_authority](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acmpca_certificate_authority) | resource |
-| [aws_s3_bucket.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) | resource |
-| [aws_s3_bucket_policy.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy) | resource |
-| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
-| [aws_iam_policy_document.access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
+| Name                                                                                                                                                               | Type        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| [aws_acmpca_certificate_authority.certificate_authority](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acmpca_certificate_authority) | resource    |
+| [aws_s3_bucket.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket)                                                         | resource    |
+| [aws_s3_bucket_policy.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy)                                        | resource    |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)                                      | data source |
+| [aws_iam_policy_document.access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document)                               | data source |
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_algorithm"></a> [algorithm](#input\_algorithm) | n/a | `map(any)` | n/a | yes |
-| <a name="input_sse_algorithm"></a> [sse\_algorithm](#input\_sse\_algorithm) | The type of encryption algorithm to use | `string` | `"aws:kms"` | no |
-| <a name="input_subject"></a> [subject](#input\_subject) | n/a | `map(any)` | n/a | yes |
+| Name                                                                     | Description                             | Type       | Default     | Required |
+| ------------------------------------------------------------------------ | --------------------------------------- | ---------- | ----------- | :------: |
+| <a name="input_algorithm"></a> [algorithm](#input_algorithm)             | n/a                                     | `map(any)` | n/a         |   yes    |
+| <a name="input_sse_algorithm"></a> [sse_algorithm](#input_sse_algorithm) | The type of encryption algorithm to use | `string`   | `"aws:kms"` |    no    |
+| <a name="input_subject"></a> [subject](#input_subject)                   | n/a                                     | `map(any)` | n/a         |   yes    |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_certificate_signing_request"></a> [certificate\_signing\_request](#output\_certificate\_signing\_request) | The CSR itself |
+| Name                                                                                                                 | Description    |
+| -------------------------------------------------------------------------------------------------------------------- | -------------- |
+| <a name="output_certificate_signing_request"></a> [certificate_signing_request](#output_certificate_signing_request) | The CSR itself |
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Related Projects
@@ -114,7 +116,7 @@ Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-
 
 ## Copyrights
 
-Copyright © 2019-2021 James Woolfenden
+Copyright © 2019-2022 James Woolfenden
 
 ## License
 
