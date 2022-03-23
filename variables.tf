@@ -11,3 +11,7 @@ variable "sse_algorithm" {
   type        = string
   default     = "aws:kms"
 }
+
+variable "kms_key" {
+
+}
