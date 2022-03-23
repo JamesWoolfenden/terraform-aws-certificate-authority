@@ -11,8 +11,8 @@ resource "aws_s3_bucket" "crl" {
   bucket = "certificate-revocation-list-${data.aws_caller_identity.current.account_id}"
 }
 
-resource "aws_s3_bucket_versioning" "versioning_example" {
-  bucket = aws_s3_bucket.example.id
+resource "aws_s3_bucket_versioning" "crl" {
+  bucket = aws_s3_bucket.crl.id
   versioning_configuration {
     status     = "Enabled"
     mfa_delete = "Disabled"
