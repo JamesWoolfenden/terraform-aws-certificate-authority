@@ -75,6 +75,7 @@ No modules.
 |------|------|
 | [aws_acmpca_certificate_authority.certificate_authority](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acmpca_certificate_authority) | resource |
 | [aws_s3_bucket.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) | resource |
+| [aws_s3_bucket_lifecycle_configuration.expire](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_lifecycle_configuration) | resource |
 | [aws_s3_bucket_policy.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy) | resource |
 | [aws_s3_bucket_server_side_encryption_configuration.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_server_side_encryption_configuration) | resource |
 | [aws_s3_bucket_versioning.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_versioning) | resource |
@@ -120,7 +121,9 @@ resource "aws_iam_policy" "terraform_pike" {
                 "acm-pa:DescribeCertificateAuthority",
                 "acm-pa:ListTags"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor1",
@@ -131,7 +134,9 @@ resource "aws_iam_policy" "terraform_pike" {
                 "acm-pca:GetCertificateAuthorityCertificate",
                 "acm-pca:UpdateCertificateAuthority"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor2",
@@ -155,11 +160,15 @@ resource "aws_iam_policy" "terraform_pike" {
                 "s3:GetObjectAcl",
                 "s3:GetReplicationConfiguration",
                 "s3:ListBucket",
+                "s3:PutBucketLogging",
                 "s3:PutBucketPolicy",
                 "s3:PutBucketVersioning",
-                "s3:PutEncryptionConfiguration"
+                "s3:PutEncryptionConfiguration",
+                "s3:PutLifecycleConfiguration"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         }
     ]
 })
@@ -189,7 +198,7 @@ Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-
 
 ## Copyrights
 
-Copyright © 2019-2022 James Woolfenden
+Copyright © 2019-2023 James Woolfenden
 
 ## License
 
