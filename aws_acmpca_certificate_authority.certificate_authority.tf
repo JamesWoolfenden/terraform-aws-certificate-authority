@@ -3,9 +3,6 @@ resource "aws_acmpca_certificate_authority" "certificate_authority" {
     key_algorithm     = var.algorithm["key"]
     signing_algorithm = var.algorithm["signing"]
 
-    usage_mode = var.usage_mode
-    type = var.type
-
     subject {
       common_name         = var.subject["common_name"]
       country             = var.subject["country"]
@@ -22,6 +19,9 @@ resource "aws_acmpca_certificate_authority" "certificate_authority" {
       s3_bucket_name     = aws_s3_bucket.crl.bucket
     }
   }
+
+  usage_mode = var.usage_mode
+  type = var.type
 
   depends_on = [aws_s3_bucket_policy.bucket]
 
