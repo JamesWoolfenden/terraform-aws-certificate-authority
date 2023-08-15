@@ -13,5 +13,17 @@ variable "sse_algorithm" {
 }
 
 variable "kms_key_arn" {
+  description = "ARN or ID of KMS key"
+  type        = string
+}
 
+variable "usage_mode" {
+  type        = string
+  default     = "GENERAL_PURPOSE"
+}
+
+variable "type" {
+  description = "Type of the certificate authority"
+  type        = string
+  default     = "SUBORDINATE"
 }
