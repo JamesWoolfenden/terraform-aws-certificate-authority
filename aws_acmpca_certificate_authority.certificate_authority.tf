@@ -3,6 +3,9 @@ resource "aws_acmpca_certificate_authority" "certificate_authority" {
     key_algorithm     = var.algorithm["key"]
     signing_algorithm = var.algorithm["signing"]
 
+    usage_mode = var.usage_mode
+    type = var.type
+
     subject {
       common_name         = var.subject["common_name"]
       country             = var.subject["country"]
