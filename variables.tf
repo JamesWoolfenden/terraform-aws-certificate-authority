@@ -1,9 +1,11 @@
 variable "subject" {
-  type = map(any)
+  type        = map(any)
+  default     = {}
 }
 
 variable "algorithm" {
-  type = map(any)
+  type        = map(any)
+  default     = {}
 }
 
 variable "sse_algorithm" {
@@ -15,6 +17,7 @@ variable "sse_algorithm" {
 variable "kms_key_arn" {
   description = "ARN or ID of KMS key"
   type        = string
+  default     = null
 }
 
 variable "usage_mode" {
