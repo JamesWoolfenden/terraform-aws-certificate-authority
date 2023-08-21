@@ -15,7 +15,7 @@ data "aws_iam_policy_document" "access" {
     condition {
       test     = "StringEquals"
       variable = "aws:SourceAccount"
-      values = [data.aws_caller_identity.current.account_id]
+      values   = [data.aws_caller_identity.current.account_id]
     }
 
     principals {
