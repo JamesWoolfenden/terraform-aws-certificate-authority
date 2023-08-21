@@ -36,6 +36,6 @@ resource "aws_acmpca_certificate_authority" "certificate_authority" {
   usage_mode = var.usage_mode
   type       = var.type
 
-  depends_on = [aws_s3_bucket_policy.bucket]
+  depends_on = [aws_s3_bucket_policy.crl]
 
 }
