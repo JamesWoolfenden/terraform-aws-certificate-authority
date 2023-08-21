@@ -19,8 +19,23 @@ data "aws_iam_policy_document" "access" {
     }
 
     principals {
-      identifiers = ["acm-pca.amazonaws.com"]
       type        = "Service"
+      identifiers = ["acm-pca.amazonaws.com"]
+    }
+  }
+
+  statement {
+    actions = [
+      "s3:GetObject"
+    ]
+
+    resources = [
+      "${aws_s3_bucket.crl.arn}/*"
+    ]
+
+    principals {
+      type = "*"
+      identifiers = ["*"]
     }
   }
 }
