@@ -30,6 +30,7 @@ resource "aws_acmpca_certificate_authority" "certificate_authority" {
       enabled            = true
       expiration_in_days = 7
       s3_bucket_name     = aws_s3_bucket.crl.bucket
+      s3_object_acl      = "PUBLIC_READ"
     }
   }
 

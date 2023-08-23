@@ -1,4 +1,5 @@
 data "aws_caller_identity" "current" {}
+data "aws_region" "current" {}
 
 resource "aws_s3_bucket" "crl" {
   # checkov:skip=CKV2_AWS_6: ADD REASON
@@ -85,7 +86,7 @@ resource "aws_s3_bucket_ownership_controls" "crl" {
   bucket = aws_s3_bucket.crl.id
 
   rule {
-    object_ownership = "BucketOwnerEnforced"
+    object_ownership = "BucketOwnerPreferred"
   }
 
   depends_on = [
@@ -94,4 +95,12 @@ resource "aws_s3_bucket_ownership_controls" "crl" {
   ]
 }
 
+resource "aws_s3_bucket_acl" "crl" {
+  bucket = aws_s3_bucket.crl.id
+  acl    = "public-read"
 
+  depends_on = [
+    aws_s3_bucket_ownership_controls.crl,
+    aws_s3_bucket_public_access_block.crl,
+  ]
+}
