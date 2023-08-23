@@ -35,7 +35,7 @@ data "aws_iam_policy_document" "access" {
     ]
 
     principals {
-      type = "*"
+      type        = "*"
       identifiers = ["*"]
     }
   }
@@ -51,7 +51,7 @@ data "aws_iam_policy_document" "access" {
     ]
 
     principals {
-      type = "AWS"
+      type        = "AWS"
       identifiers = ["${data.aws_caller_identity.current.arn}"]
     }
   }
