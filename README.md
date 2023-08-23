@@ -9,7 +9,7 @@
 [![checkov](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
 [![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/jameswoolfenden/terraform-aws-certificate-authority/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=JamesWoolfenden%2Fterraform-aws-certificate-authority&benchmark=INFRASTRUCTURE+SECURITY)
 
-Terraform module to provision infra. This is pretty much the example from the terraform docs converted to a module.
+Terraform module to provision infra. This is pretty much the example from the Terraform docs converted to a module.
 
 ---
 
@@ -73,14 +73,19 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [aws_acmpca_certificate.certificate](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acmpca_certificate) | resource |
 | [aws_acmpca_certificate_authority.certificate_authority](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acmpca_certificate_authority) | resource |
+| [aws_acmpca_certificate_authority_certificate.certificate_authority_certificate](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acmpca_certificate_authority_certificate) | resource |
 | [aws_s3_bucket.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) | resource |
 | [aws_s3_bucket_lifecycle_configuration.expire](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_lifecycle_configuration) | resource |
 | [aws_s3_bucket_policy.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy) | resource |
+| [aws_s3_bucket_public_access_block.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block) | resource |
 | [aws_s3_bucket_server_side_encryption_configuration.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_server_side_encryption_configuration) | resource |
 | [aws_s3_bucket_versioning.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_versioning) | resource |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 | [aws_iam_policy_document.access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
+| [aws_partition.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/partition) | data source |
+| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
 
 ## Inputs
 
@@ -90,11 +95,15 @@ No modules.
 | <a name="input_kms_key"></a> [kms\_key](#input\_kms\_key) | n/a | `any` | n/a | yes |
 | <a name="input_sse_algorithm"></a> [sse\_algorithm](#input\_sse\_algorithm) | The type of encryption algorithm to use | `string` | `"aws:kms"` | no |
 | <a name="input_subject"></a> [subject](#input\_subject) | n/a | `map(any)` | n/a | yes |
+| <a name="input_type"></a> [type](#input\_type) | n/a | `string` | `"SUBORDINATE"` | no |
+| <a name="input_usage_mode"></a> [usage\_mode](#input\_usage\_mode) | n/a | `string` | `"GENERAL_PURPOSE"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
+| <a name="output_certificate_authority_arn"></a> [certificate\_authority\_arn](#output\_certificate\_authority\_arn) | Certificate authority arn |
+| <a name="output_certificate_authority_id"></a> [certificate\_authority\_id](#output\_certificate\_authority\_id) | Certificate authority id |
 | <a name="output_certificate_signing_request"></a> [certificate\_signing\_request](#output\_certificate\_signing\_request) | The CSR itself |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
@@ -150,6 +159,7 @@ resource "aws_iam_policy" "terraform_pike" {
                 "s3:GetBucketLogging",
                 "s3:GetBucketObjectLockConfiguration",
                 "s3:GetBucketPolicy",
+                "s3:GetBucketPublicAccessBlock",
                 "s3:GetBucketRequestPayment",
                 "s3:GetBucketTagging",
                 "s3:GetBucketVersioning",
@@ -162,6 +172,7 @@ resource "aws_iam_policy" "terraform_pike" {
                 "s3:ListBucket",
                 "s3:PutBucketLogging",
                 "s3:PutBucketPolicy",
+                "s3:PutBucketPublicAccessBlock",
                 "s3:PutBucketVersioning",
                 "s3:PutEncryptionConfiguration",
                 "s3:PutLifecycleConfiguration"

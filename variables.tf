@@ -15,3 +15,13 @@ variable "sse_algorithm" {
 variable "kms_key" {
 
 }
+
+variable "usage_mode" {
+  type    = string
+  default = "GENERAL_PURPOSE"
+}
+
+variable "type" {
+  type    = string
+  default = "SUBORDINATE"
+}
