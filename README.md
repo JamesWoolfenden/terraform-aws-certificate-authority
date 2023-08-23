@@ -82,7 +82,6 @@ No modules.
 | [aws_s3_bucket_ownership_controls.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_ownership_controls) | resource |
 | [aws_s3_bucket_policy.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy) | resource |
 | [aws_s3_bucket_public_access_block.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block) | resource |
-| [aws_s3_bucket_server_side_encryption_configuration.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_server_side_encryption_configuration) | resource |
 | [aws_s3_bucket_versioning.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_versioning) | resource |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 | [aws_iam_policy_document.access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
@@ -189,7 +188,6 @@ resource "aws_iam_policy" "terraform_pike" {
                 "s3:PutBucketPolicy",
                 "s3:PutBucketPublicAccessBlock",
                 "s3:PutBucketVersioning",
-                "s3:PutEncryptionConfiguration",
                 "s3:PutIntelligentTieringConfiguration",
                 "s3:PutLifecycleConfiguration"
             ],
