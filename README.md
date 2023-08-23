@@ -77,7 +77,9 @@ No modules.
 | [aws_acmpca_certificate_authority.certificate_authority](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acmpca_certificate_authority) | resource |
 | [aws_acmpca_certificate_authority_certificate.certificate_authority_certificate](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acmpca_certificate_authority_certificate) | resource |
 | [aws_s3_bucket.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) | resource |
+| [aws_s3_bucket_acl.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_acl) | resource |
 | [aws_s3_bucket_lifecycle_configuration.expire](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_lifecycle_configuration) | resource |
+| [aws_s3_bucket_ownership_controls.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_ownership_controls) | resource |
 | [aws_s3_bucket_policy.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy) | resource |
 | [aws_s3_bucket_public_access_block.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block) | resource |
 | [aws_s3_bucket_server_side_encryption_configuration.crl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_server_side_encryption_configuration) | resource |
@@ -151,6 +153,16 @@ resource "aws_iam_policy" "terraform_pike" {
             "Sid": "VisualEditor2",
             "Effect": "Allow",
             "Action": [
+                "ec2:DescribeAccountAttributes"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "VisualEditor3",
+            "Effect": "Allow",
+            "Action": [
                 "s3:CreateBucket",
                 "s3:DeleteBucket",
                 "s3:GetAccelerateConfiguration",
@@ -165,16 +177,20 @@ resource "aws_iam_policy" "terraform_pike" {
                 "s3:GetBucketVersioning",
                 "s3:GetBucketWebsite",
                 "s3:GetEncryptionConfiguration",
+                "s3:GetIntelligentTieringConfiguration",
                 "s3:GetLifecycleConfiguration",
                 "s3:GetObject",
                 "s3:GetObjectAcl",
                 "s3:GetReplicationConfiguration",
+                "s3:ListAllMyBuckets",
                 "s3:ListBucket",
+                "s3:PutBucketAcl",
                 "s3:PutBucketLogging",
                 "s3:PutBucketPolicy",
                 "s3:PutBucketPublicAccessBlock",
                 "s3:PutBucketVersioning",
                 "s3:PutEncryptionConfiguration",
+                "s3:PutIntelligentTieringConfiguration",
                 "s3:PutLifecycleConfiguration"
             ],
             "Resource": [

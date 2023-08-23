@@ -3,11 +3,24 @@ resource "aws_acmpca_certificate_authority" "certificate_authority" {
     key_algorithm     = var.algorithm["key"]
     signing_algorithm = var.algorithm["signing"]
 
-    subject {
-      common_name         = try(var.subject["common_name"])
-      country             = try(var.subject["country"])
-      organization        = try(var.subject["organization"])
-      organizational_unit = try(var.subject["organizational_unit"])
+    dynamic "subject" {
+      for_each = [var.subject]
+
+      content {
+        common_name                  = try(subject.value.common_name, null)
+        country                      = try(subject.value.country, null)
+        distinguished_name_qualifier = try(subject.value.distinguished_name_qualifier, null)
+        generation_qualifier         = try(subject.value.generation_qualifier, null)
+        given_name                   = try(subject.value.given_name, null)
+        initials                     = try(subject.value.initials, null)
+        locality                     = try(subject.value.locality, null)
+        organization                 = try(subject.value.organization, null)
+        organizational_unit          = try(subject.value.organizational_unit, null)
+        pseudonym                    = try(subject.value.pseudonym, null)
+        state                        = try(subject.value.state, null)
+        surname                      = try(subject.value.surname, null)
+        title                        = try(subject.value.title, null)
+      }
     }
   }
 
