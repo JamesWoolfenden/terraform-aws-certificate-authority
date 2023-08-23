@@ -12,10 +12,6 @@ variable "sse_algorithm" {
   default     = "aws:kms"
 }
 
-variable "kms_key" {
-
-}
-
 variable "usage_mode" {
   type    = string
   default = "GENERAL_PURPOSE"

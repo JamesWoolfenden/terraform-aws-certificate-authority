@@ -93,7 +93,6 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_algorithm"></a> [algorithm](#input\_algorithm) | n/a | `map(any)` | n/a | yes |
-| <a name="input_kms_key"></a> [kms\_key](#input\_kms\_key) | n/a | `any` | n/a | yes |
 | <a name="input_sse_algorithm"></a> [sse\_algorithm](#input\_sse\_algorithm) | The type of encryption algorithm to use | `string` | `"aws:kms"` | no |
 | <a name="input_subject"></a> [subject](#input\_subject) | n/a | `map(any)` | n/a | yes |
 | <a name="input_type"></a> [type](#input\_type) | n/a | `string` | `"SUBORDINATE"` | no |
