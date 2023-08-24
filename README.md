@@ -17,15 +17,13 @@ It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 
 ## Usage
 
-Include this repository as a module in your existing terraform code:
+Include this repository as a module in your existing Terraform code:
 
 ```hcl
 module "ca" {
-  source                  = "JamesWoolfenden/certificate-authority/aws"
-  version                 = "0.2.12"
-  algorithm               = var.algorithm
-  subject                 = var.subject
-  common_tags             = var.common_tags
+  source    = "git::https://github.com/JamesWoolfenden/terraform-aws-certificate-authority.git?ref=ac7e4b8f846704fa5655bcc3d4bdb6640f070f42"
+  algorithm = var.algorithm
+  subject   = var.subject
 }
 ```
 
