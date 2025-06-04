@@ -1,0 +1,66 @@
+name: 🤖 Sonar Check
+
+on:
+  pull_request:
+
+jobs:
+  sonarqube-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js (opcional si el proyecto es JS/TS)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'  
+
+      - name: Install dependencies (safe)
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "Using npm ci"
+            npm ci || echo "npm ci failed"
+          elif [ -f package.json ]; then
+            echo "Using npm install"
+            npm install || echo "npm install failed"
+          else
+            echo "No package.json found, skipping npm install"
+          fi
+
+      - name: Build project (safe)
+        run: |
+          if [ -f package.json ] && npm run | grep -q "build"; then
+            echo "Running npm run build"
+            npm run build || echo "Build failed, continuing..."
+          else
+            echo "No build script found, skipping build"
+          fi
+
+      - name: Set Project Key
+        id: set_project_key
+        run: |
+          PROJECT_KEY=$(echo "${{ github.repository }}" | tr '/' '-')
+          echo "PROJECT_KEY=$PROJECT_KEY" >> $GITHUB_OUTPUT
+        shell: bash
+
+      - name: Run SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v5.2.0
+        with:
+          args: >
+            -Dsonar.projectKey=${{ steps.set_project_key.outputs.PROJECT_KEY }}
+            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION || 'xepelinapp' }}
+            -Dsonar.sources=.
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+      - name: Tag SonarQube Project
+        if: github.event_name == 'push'
+        run: |
+          curl -u ${{ secrets.SONAR_TOKEN }}: \
+            -X POST "${{ secrets.SONAR_HOST_URL }}/api/project_tags/set?project=${{ steps.set_project_key.outputs.PROJECT_KEY }}&tags=xforce"
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
