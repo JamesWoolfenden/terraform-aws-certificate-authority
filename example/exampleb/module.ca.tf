@@ -1,5 +1,5 @@
 module "ca" {
-  source = "git::https://github.com/JamesWoolfenden/terraform-aws-certificate-authority.git?ref=ac7e4b8f846704fa5655bcc3d4bdb6640f070f42" #ac7e4b8f846704fa5655bcc3d4bdb6640f070f42
+  source = "git::https://github.com/JamesWoolfenden/terraform-aws-certificate-authority.git?ref=c7cd5e15bf5345c0be6252cc7cb1414a2f89ff2b" #v0.2.72
   algorithm = var.algorithm
   subject   = var.subject
 }
