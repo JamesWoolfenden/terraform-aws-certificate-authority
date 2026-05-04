@@ -125,8 +125,17 @@ resource "aws_iam_policy" "terraform_pike" {
             "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
-                "acm-pa:DescribeCertificateAuthority",
-                "acm-pa:ListTags"
+                "acm-pca:CreateCertificateAuthority",
+                "acm-pca:DeleteCertificateAuthority",
+                "acm-pca:DescribeCertificateAuthority",
+                "acm-pca:GetCertificate",
+                "acm-pca:GetCertificateAuthorityCertificate",
+                "acm-pca:GetCertificateAuthorityCsr",
+                "acm-pca:ImportCertificateAuthorityCertificate",
+                "acm-pca:IssueCertificate",
+                "acm-pca:ListTags",
+                "acm-pca:RevokeCertificate",
+                "acm-pca:UpdateCertificateAuthority"
             ],
             "Resource": [
                 "*"
@@ -136,36 +145,15 @@ resource "aws_iam_policy" "terraform_pike" {
             "Sid": "VisualEditor1",
             "Effect": "Allow",
             "Action": [
-                "acm-pca:CreateCertificateAuthority",
-                "acm-pca:DeleteCertificateAuthority",
-                "acm-pca:GetCertificateAuthorityCertificate",
-                "acm-pca:UpdateCertificateAuthority"
-            ],
-            "Resource": [
-                "*"
-            ]
-        },
-        {
-            "Sid": "VisualEditor2",
-            "Effect": "Allow",
-            "Action": [
-                "ec2:DescribeAccountAttributes"
-            ],
-            "Resource": [
-                "*"
-            ]
-        },
-        {
-            "Sid": "VisualEditor3",
-            "Effect": "Allow",
-            "Action": [
                 "s3:CreateBucket",
                 "s3:DeleteBucket",
+                "s3:DeleteBucketPolicy",
                 "s3:GetAccelerateConfiguration",
                 "s3:GetBucketAcl",
                 "s3:GetBucketCORS",
                 "s3:GetBucketLogging",
                 "s3:GetBucketObjectLockConfiguration",
+                "s3:GetBucketOwnershipControls",
                 "s3:GetBucketPolicy",
                 "s3:GetBucketPublicAccessBlock",
                 "s3:GetBucketRequestPayment",
@@ -173,7 +161,6 @@ resource "aws_iam_policy" "terraform_pike" {
                 "s3:GetBucketVersioning",
                 "s3:GetBucketWebsite",
                 "s3:GetEncryptionConfiguration",
-                "s3:GetIntelligentTieringConfiguration",
                 "s3:GetLifecycleConfiguration",
                 "s3:GetObject",
                 "s3:GetObjectAcl",
@@ -182,10 +169,10 @@ resource "aws_iam_policy" "terraform_pike" {
                 "s3:ListBucket",
                 "s3:PutBucketAcl",
                 "s3:PutBucketLogging",
+                "s3:PutBucketOwnershipControls",
                 "s3:PutBucketPolicy",
                 "s3:PutBucketPublicAccessBlock",
                 "s3:PutBucketVersioning",
-                "s3:PutIntelligentTieringConfiguration",
                 "s3:PutLifecycleConfiguration"
             ],
             "Resource": [
