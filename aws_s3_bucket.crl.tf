@@ -1,4 +1,5 @@
 resource "aws_s3_bucket" "crl" {
+  # checkov:skip=CKV2_AWS_61: Lifecycle configuration not required for this bucket
   # checkov:skip=CKV2_AWS_6: Cert bucket needs public read
   # checkov:skip=CKV_AWS_144: Inappropriate check
   # checkov:skip=CKV2_AWS_37: Versioning off
@@ -9,7 +10,6 @@ resource "aws_s3_bucket" "crl" {
   # checkov:skip=CKV_AWS_20: bucket should be readable
   bucket = "certificate-revocation-list-${data.aws_caller_identity.current.account_id}"
 }
-
 resource "aws_s3_bucket_versioning" "crl" {
   bucket = aws_s3_bucket.crl.id
   versioning_configuration {
@@ -17,7 +17,6 @@ resource "aws_s3_bucket_versioning" "crl" {
     mfa_delete = "Disabled"
   }
 }
-
 resource "aws_s3_bucket_lifecycle_configuration" "expire" {
   bucket = aws_s3_bucket.crl.bucket
 
