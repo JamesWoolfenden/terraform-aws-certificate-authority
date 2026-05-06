@@ -4,10 +4,8 @@
 [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-certificate-authority.svg)](https://github.com/JamesWoolfenden/terraform-aws-certificate-authority/releases/latest)
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/JamesWoolfenden/terraform-aws-certificate-authority.svg?label=latest)](https://github.com/JamesWoolfenden/terraform-aws-certificate-authority/releases/latest)
 ![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.14.0-blue.svg)
-[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/JamesWoolfenden/terraform-aws-certificate-authority/cis_aws)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=JamesWoolfenden%2Fterraform-aws-certificate-authority&benchmark=CIS+AWS+V1.2)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![checkov](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
-[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/jameswoolfenden/terraform-aws-certificate-authority/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=JamesWoolfenden%2Fterraform-aws-certificate-authority&benchmark=INFRASTRUCTURE+SECURITY)
 
 Terraform module to provision infra. This is pretty much the example from the Terraform docs converted to a module.
 
@@ -60,7 +58,7 @@ No requirements.
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
 
 ## Modules
@@ -70,7 +68,7 @@ No modules.
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [aws_acmpca_certificate.certificate](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acmpca_certificate) | resource |
 | [aws_acmpca_certificate_authority.certificate_authority](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acmpca_certificate_authority) | resource |
 | [aws_acmpca_certificate_authority_certificate.certificate_authority_certificate](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acmpca_certificate_authority_certificate) | resource |
@@ -89,7 +87,7 @@ No modules.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_algorithm"></a> [algorithm](#input\_algorithm) | n/a | `map(any)` | n/a | yes |
 | <a name="input_sse_algorithm"></a> [sse\_algorithm](#input\_sse\_algorithm) | The type of encryption algorithm to use | `string` | `"aws:kms"` | no |
 | <a name="input_subject"></a> [subject](#input\_subject) | n/a | `map(any)` | n/a | yes |
@@ -99,7 +97,7 @@ No modules.
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_certificate_authority_arn"></a> [certificate\_authority\_arn](#output\_certificate\_authority\_arn) | Certificate authority arn |
 | <a name="output_certificate_authority_id"></a> [certificate\_authority\_id](#output\_certificate\_authority\_id) | Certificate authority id |
 | <a name="output_certificate_signing_request"></a> [certificate\_signing\_request](#output\_certificate\_signing\_request) | The CSR itself |
@@ -207,7 +205,7 @@ Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-
 
 ## Copyrights
 
-Copyright © 2019-2023 James Woolfenden
+Copyright © 2019-2026 James Woolfenden
 
 ## License
 
